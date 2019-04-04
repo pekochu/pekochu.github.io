@@ -1,0 +1,10 @@
+# Outputting
+permalink: /404.html
+timezone: America/Mexico_City
+
+# HTML Compression
+# - http://jch.penibelst.de/
+compress_html:
+    clippings: all
+    ignore:
+        envs: development

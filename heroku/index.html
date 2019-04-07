@@ -255,7 +255,7 @@
                 type: "GET",
                 url: "https://pekochu.herokuapp.com",
                 success: function(response){
-                    $('#output-index').html(response);
+                    $('#output-index').html(JSON.stringify(response));
                 },
                 error(xhr, status, error){
                     $('#output-index').html(status);

@@ -123,7 +123,25 @@
 						<h2>¿Qué es esto?</h2>
 						<span>Breve prefacio</span>
 					</div>
-					<p>Claramente, esto es una página web. Cualquiera puede entrar a ella. </p>
+					<p>Claramente, esto es una página web. Cualquiera puede entrar a ella. Aquí planeo hacer prueba de algunas aplicaciones que tengo y que quiero que me ayuden a probarlas. También crearé algunas entradas de blog en las que me gustaría desahogarme por algo, escribir porque sí o simplemente porque hay un tema para mí de mucho intéres.</p>
+				</div>
+				<div class="section nobottommargin" style="padding-bottom: 150px;">
+					<div class="container clearfix" style="z-index: 1;">
+						<div class="col_full nobottommargin">
+							<div class="heading-block">
+                                <h2>Prueba de conexión con RENAPO</h2>
+                                <span>Dado que RENAPO no provee una API pública para la obtención de datos personales a partir de la CURP (por, me imagino, obvias razones de privacidad) me gustaría probar algunos métodos que usan algunas dependencias de gobierno que tienen esta conexión directa con RENAPO.</span>
+							</div>	
+							<p>NOTA: no almacenamos ninguna información personal ni tu CURP.</p>						
+							<form class="form-inline" id="form_api_curp">
+								<div class="form-group mx-sm-3 mb-2">
+									<label for="curp" class="sr-only">Tu CURP</label>
+									<input type="text" class="form-control" id="input_curp" placeholder="Password">
+								</div>
+								<button type="submit" class="btn btn-primary mb-2">Obtener datos</button>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -238,6 +256,21 @@
 	<script type="text/javascript">
 		$.each($('.current-year'), function(i, v) {
 		  	$(v).text((new Date).getFullYear());
+		});
+
+		$('#form_api_curp').on('submit', function(e){
+			e.preventDefault();
+			$.ajax({
+                type: "GET",
+                url: "https://testingphpzone.com/~pekochu/api/v1/CURP/",
+				data: {'curp': $('#input_curp').val()},
+                success: function(response){
+                   	console.log(response);
+                },
+                error(xhr, status, error){
+                    console.log(status);
+                }
+            });
 		});
 	</script>
 </body>

@@ -130,15 +130,46 @@
 						<div class="col_full nobottommargin">
 							<div class="heading-block">
                                 <h2>Prueba de conexión con RENAPO</h2>
-                                <span>Dado que RENAPO no provee una API pública para la obtención de datos personales a partir de la CURP (por, me imagino, obvias razones de privacidad) me gustaría probar algunos métodos que usan algunas dependencias de gobierno que tienen esta conexión directa con RENAPO.</span>
+                                <span>Una conexión no tan directa con RENAPO</span>
 							</div>	
+							<p>Dado que RENAPO no provee una API pública para la obtención de datos personales a partir de la CURP (por, me imagino, obvias razones de privacidad) me gustaría probar algunos métodos que usan algunas dependencias de gobierno que tienen esta conexión directa con RENAPO.</p>
 							<p>NOTA: no almacenamos ninguna información personal ni tu CURP.</p>						
 							<form class="form-inline" id="form_api_curp">
-								<div class="form-group mx-sm-3 mb-2">
+								<div class="form-group mx-sm-3 mb-2 col_half">
 									<label for="curp" class="sr-only">Tu CURP</label>
-									<input type="text" class="form-control" id="input_curp" placeholder="Password">
+									<input type="text" class="form-control col-12" id="input_curp" placeholder="XXXX######XXXXXXXX">
 								</div>
 								<button type="submit" class="btn btn-primary mb-2">Obtener datos</button>
+							</form>
+							<form>
+								<div class="form-row">
+									<div class="form-group col-md-4">
+										<label for="nombre">Nombre</label>
+										<input type="text" class="form-control" id="nombre" placeholder="" readonly>
+									</div>
+									<div class="form-group col-md-4">
+										<label for="paterno">Apellido Paterno</label>
+										<input type="text" class="form-control" id="paterno" placeholder="" readonly>
+									</div>
+									<div class="form-group col-md-4">
+										<label for="materno">Apellido Materno</label>
+										<input type="text" class="form-control" id="materno" placeholder="" readonly>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md-3">
+										<label for="genero">Genero</label>
+										<input type="text" class="form-control" id="genero" placeholder="" readonly>
+									</div>
+									<div class="form-group col-md-3">
+										<label for="nacimiento">Fecha de nacimiento</label>
+										<input type="text" class="form-control" id="nacimiento" placeholder="" readonly>
+									</div>
+									<div class="form-group col-md-6">
+										<label for="lugar-nacimiento">Lugar de nacimiento</label>
+										<input type="text" class="form-control" id="lugar-nacimiento" placeholder="" readonly>
+									</div>
+								</div>
 							</form>
 						</div>
 					</div>
@@ -265,7 +296,12 @@
                 url: "https://testingphpzone.com/~pekochu/api/v1/CURP/",
 				data: {'curp': $('#input_curp').val()},
                 success: function(response){
-                   	console.log(response);
+					$('#paterno').val(response.body[1]);
+					$('#materno').val(response.body[2]);
+                   	$('#nombre').val(response.body[3]);
+					$('#genero').val(response.body[4]);
+					$('#nacimiento').val(response.body[5]);
+					$('#lugar-nacimiento').val(response.body[6]);
                 },
                 error(xhr, status, error){
                     console.log(status);

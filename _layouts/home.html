@@ -32,7 +32,7 @@ layout: default
   <div class="content-wrap">
     <div class="container clearfix">
       <div class="heading-block center">
-        <h1>{{ page.list_title | default: "Posts recientes" }}</h1>
+        <h1>{{ page.list_title | default: "Posts recientes de mi blog" }}</h1>
         <span>{{ content }}</span>
       </div>
       {%- if site.posts.size > 0 -%}
@@ -42,27 +42,29 @@ layout: default
           {%- if post.related_image -%}
           <div class="entry-image">
             {%- assign post_image_url = "/" | append: post.related_image -%}
-            <a href="{{ post_image_url | absolute_url }}" data-lightbox="image"><img class="image_fade" style="width:100%;height:450px;object-fit: none;object-position: center;" src="{{ post_image_url | absolute_url }}" alt="{{ post.title | escape }}"></a>
+            <a href="{{ post_image_url | absolute_url }}" data-lightbox="image"><img class="image_fade" src="{{ post_image_url | absolute_url }}" alt="{{ post.title | escape }}"></a>
           </div>
           {%- endif -%}
-          <div class="entry-title">
-            <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
-          </div>
-          <ul class="entry-meta clearfix">
-            {%- assign date_format = site.date_format -%}
-            {%- assign tags_list = post.tags -%}
-            <li><i class="icon-calendar3"></i> {{ post.date | date: date_format }}</li>
-            <li><a href="#"><i class="icon-user"></i> {{ post.author }}</a></li>
-            <li><i class="icon-folder-open"></i>
-              {% for tag in tags_list %}
-              {%- assign post_tag = tag | escape | downcase | url_escape | strip | replace: ' ', '-' -%}
-              <a href="{{ "/tag/" | append: tag | absolute_url  }}">{{ post_tag | camelcase }}</a>,
-              {% endfor %}
-            </li>
-          </ul>
-          <div class="entry-content">
-            <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
-            <a href="{{ post.url | relative_url }}" class="more-link">Leer más</a>
+          <div class="entry-c">
+            <div class="entry-title">
+              <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+            </div>
+            <ul class="entry-meta clearfix">
+              {%- assign date_format = site.date_format -%}
+              {%- assign tags_list = post.tags -%}
+              <li><i class="icon-calendar3"></i> {{ post.date | date: date_format }}</li>
+              <li><a href="#"><i class="icon-user"></i> {{ post.author }}</a></li>
+              <li><i class="icon-folder-open"></i>
+                {% for tag in tags_list %}
+                {%- assign post_tag = tag | escape | downcase | url_escape | strip | replace: ' ', '-' -%}
+                <a href="{{ "/tag/" | append: tag | absolute_url  }}">{{ post_tag | camelcase }}</a>,
+                {% endfor %}
+              </li>
+            </ul>
+            <div class="entry-content">
+              <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
+              <a href="{{ post.url | relative_url }}" class="more-link">Leer más</a>
+            </div>
           </div>
         </div>
         {%- endfor -%}

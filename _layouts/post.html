@@ -1,0 +1,68 @@
+---
+layout: default
+---
+    <section id="page-title">
+      <div class="container clearfix">
+        <h1>Entrada del blog</h1>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ "/" | relative_url }}">Inicio</a></li>
+          {%- assign category_list = page.categories -%}
+          {% for category in category_list %}
+          {%- assign page_category = category | escape | downcase | url_escape | strip | replace: ' ', '-' -%}
+          <li class="breadcrumb-item"><a href="{{ "/category/" | append: category | absolute_url  }}">{{ page_category | capitalize }}</a></li>
+          {% endfor %}
+          <li class="breadcrumb-item active" aria-current="page">{{ page.title | escape }}</li>
+        </ol>
+      </div>
+    </section>
+    <section id="content">
+      <div class="content-wrap">
+        <div class="container clearfix">
+          <div class="single-post nobottommargin">
+            <div class="entry clearfix">
+              <div class="entry-title">
+                <h2>{{ page.title | escape }}</h2>
+              </div>
+              <!-- Jekyll Preamble
+              ============================================= -->
+              {%- assign date_format = site.date_format -%}
+              {%- assign tags_list = page.tags -%}
+              {%- assign page_image = page.related_image | default: "null" -%}
+              <!-- Entry Meta
+              ============================================= -->
+              <ul class="entry-meta clearfix">                
+                  <li><i class="icon-calendar3"></i> {{ page.date | date: date_format }}</li>
+                  <li><a href="#"><i class="icon-user"></i> {{ page.author }}</a></li>
+                  <li><i class="icon-folder-open"></i>
+                      {% for tag in tags_list %}
+                      {%- assign post_tag = tag | escape | downcase | url_escape | strip | replace: ' ', '-' -%}
+                      <a href="{{ "/tag/" | append: tag | absolute_url  }}">{{ post_tag | camelcase }}</a>,
+                      {% endfor %}
+                  </li>
+              </ul><!-- .entry-meta end -->
+
+              <!-- Entry Image
+              ============================================= -->
+              <div class="entry-image bottommargin">
+                {%- assign page_image_url = "/" | append: page_image -%}
+                <a href="#"><img src="{{ page_image_url | absolute_url }}" alt="Entrada del blog"></a>
+              </div><!-- .entry-image end -->
+
+              <!-- Entry Content
+              ============================================= -->
+              <div class="entry-content notopmargin">
+                {{ content }}
+              </div>
+            </div>
+            {%- if page.comments != false and jekyll.environment == "production" -%}
+            <div id="comments" class="clearfix">
+              <h3 id="comments-title">Comentarios</h3>
+              <!-- Disqus Comments
+              ============================================= -->
+              <div id="disqus_thread"></div>
+            </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </section>

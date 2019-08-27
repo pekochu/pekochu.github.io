@@ -89,6 +89,73 @@
 
 ---------------------------------------------------------------- */
 
+/* FONTS */
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i&display=swap');
+
+@font-face {
+	font-family: 'Marat Pro Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Marat Pro Regular'), url('fonts/MaratPro-Regular.woff') format('woff');
+}
+	
+	
+@font-face {
+	font-family: 'Marat Pro Regular Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Marat Pro Regular Italic'), url('fonts/MaratPro-Regular-Italic.woff') format('woff');
+}
+
+
+@font-face {
+	font-family: 'Marat Pro Medium';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Marat Pro Medium'), url('fonts/MaratPro-Medium.woff') format('woff');
+}
+
+
+@font-face {
+	font-family: 'Marat Pro Medium Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Marat Pro Medium Italic'), url('fonts/MaratPro-Medium-Italic.woff') format('woff');
+}
+
+
+@font-face {
+	font-family: 'Marat Pro Bold';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Marat Pro Bold'), url('fonts/MaratPro-Bold.woff') format('woff');
+}
+
+
+@font-face {
+	font-family: 'Marat Pro Bold Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Marat Pro Bold Italic'), url('fonts/MaratPro-Bold-Italic.woff') format('woff');
+}
+
+
+@font-face {
+	font-family: 'Marat Pro Black';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Marat Pro Black'), url('fonts/MaratPro-Black.woff') format('woff');
+}
+
+
+@font-face {
+	font-family: 'Marat Pro Black Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Marat Pro Black Italic'), url('fonts/MaratPro-Black-Italic.woff') format('woff');
+}
 
 /* ----------------------------------------------------------------
 	Bootstrap Adjustments
@@ -112,7 +179,7 @@
 
 
 body,
-.dropdown-menu { font-size: 0.875rem; }
+.dropdown-menu { font-size: 1.325rem; }
 
 
 /* ----------------------------------------------------------------
@@ -163,7 +230,7 @@ dl, dt, dd, ol, ul, li {
 
 body {
 	line-height: 1.5;
-	color: #555;
+	color: rgba(0, 0, 0, 0.84);
 	font-family: 'Lato', sans-serif;
 }
 
@@ -447,6 +514,8 @@ span.middot {
 .font-primary { font-family: 'Raleway', sans-serif; }
 
 .font-secondary { font-family: 'Crete Round', serif; }
+
+.font-blog { font-family: 'Marat Pro Regular', Georgia, 'Times New Roman', Times, serif; }
 
 .bgicon {
 	display: block;
@@ -1809,16 +1878,16 @@ body.top-search-open #top-search form input { pointer-events: auto; }
 body:not(.device-md):not(.device-sm):not(.device-xs) #header.transparent-header:not(.sticky-header):not(.full-header):not(.floating-header) #top-search form input { border-bottom: 2px solid rgba(0,0,0,0.1); }
 
 #top-search form input::-moz-placeholder {
-	color: #555;
+	color: rgba(0, 0, 0, 0.84);
 	opacity: 1;
 	text-transform: uppercase;
 }
 #top-search form input:-ms-input-placeholder {
-	color: #555;
+	color: rgba(0, 0, 0, 0.84);
 	text-transform: uppercase;
 }
 #top-search form input::-webkit-input-placeholder {
-	color: #555;
+	color: rgba(0, 0, 0, 0.84);
 	text-transform: uppercase;
 }
 
@@ -3361,7 +3430,7 @@ body.stretched .container-fullwidth .breadcrumb { right: 60px !important; }
 
 #header.transparent-header + #page-title.page-title-parallax .breadcrumb { margin-top: 35px !important; }
 
-.breadcrumb a { color: #555; }
+.breadcrumb a { color: rgba(0, 0, 0, 0.84); }
 
 .breadcrumb a:hover { color: #1ABC9C; }
 
@@ -5328,7 +5397,7 @@ body:not(.device-touch) .entry-link {
 	font-style: italic;
 }
 
-.more-link:hover { border-bottom-color: #555; }
+.more-link:hover { border-bottom-color: rgba(0, 0, 0, 0.84); }
 
 
 /* Related Posts
@@ -5578,7 +5647,7 @@ body:not(.device-touch) .entry-link {
 	margin-bottom: -10px;
 	font-size: 16px;
 	font-weight: bold;
-	color: #555;
+	color: rgba(0, 0, 0, 0.84);
 }
 
 .comment-content .comment-author a {
@@ -6183,7 +6252,7 @@ body:not(.device-touch):not(.device-sm):not(.device-xs) .product-overlay a {
 .cart th {
 	padding: 12px 15px !important;
 	font-size: 14px;
-	color: #555;
+	color: rgba(0, 0, 0, 0.84);
 }
 
 .cart td {
@@ -7787,7 +7856,7 @@ body:not(.device-touch) .button.button-full strong {
 	display: block;
 	margin: 20px auto;
 	width: 30px;
-	border-top: 2px solid #555;
+	border-top: 2px solid rgba(0, 0, 0, 0.84);
 	-webkit-transition: width .3s ease;
 	-o-transition: width .3s ease;
 	transition: width .3s ease;
@@ -8227,7 +8296,7 @@ body:not(.device-touch) .social-icon {
 }
 
 .i-bordered {
-	border: 1px solid #555;
+	border: 1px solid rgba(0, 0, 0, 0.84);
 	line-height: 50px !important;
 	background-color: transparent !important;
 	color: #444;
@@ -8484,7 +8553,7 @@ body:not(.device-touch) .on-hover.i-overlay {
 	height: 40px;
 	font-size: 20px;
 	line-height: 38px !important;
-	color: #555;
+	color: rgba(0, 0, 0, 0.84);
 	text-shadow: none;
 	border: 1px solid #AAA;
 	border-radius: 3px;
@@ -8568,7 +8637,7 @@ body:not(.device-touch) .social-icon i {
 .social-icon.si-small:hover i:first-child { margin-top: -30px; }
 
 .social-icon:hover {
-	color: #555;
+	color: rgba(0, 0, 0, 0.84);
 	border-color: transparent;
 }
 
@@ -9952,7 +10021,7 @@ body:not(.device-touch) .team-overlay {
 	letter-spacing: 1px;
 	font-weight: bold;
 	text-transform: uppercase;
-	color: #555;
+	color: rgba(0, 0, 0, 0.84);
 }
 
 .pricing-title span {
@@ -10883,7 +10952,7 @@ body:not(.device-touch) .text-overlay {
 	padding: 8px 14px;
 	font-size: 15px;
 	line-height: 1.42857143;
-	color: #555555;
+	color: rgba(0, 0, 0, 0.84)555;
 	background-color: #ffffff;
 	background-image: none;
 	border: 2px solid #DDD;
@@ -10933,7 +11002,7 @@ label {
 	font-family: 'Raleway', sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	color: #555;
+	color: rgba(0, 0, 0, 0.84);
 	margin-bottom: 10px;
 	cursor: pointer;
 }
@@ -11088,7 +11157,7 @@ input[type=checkbox]:not(:checked) + label.error { display: block !important; }
 .title-block > span {
 	display: block;
 	margin-top: 4px;
-	color: #555;
+	color: rgba(0, 0, 0, 0.84);
 	font-weight: 300;
 }
 
@@ -11935,7 +12004,7 @@ button.toast-close-button {
 }
 
 .copyright-links a:hover {
-	color: #555;
+	color: rgba(0, 0, 0, 0.84);
 	border-bottom: 1px solid #666;
 }
 

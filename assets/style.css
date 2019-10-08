@@ -186,7 +186,7 @@
 
 .dropdown-menu,
 body {
-	font-size: .875rem
+	font-size: 1.325rem
 }
 
 dd,
@@ -685,17 +685,13 @@ span.middot {
 	line-height: 0 !important
 }
 
-.font-body {
-	font-family: Lato, sans-serif
-}
+.font-body { font-family: 'Lato', sans-serif; }
 
-.font-primary {
-	font-family: Raleway, sans-serif
-}
+.font-primary { font-family: 'Raleway', sans-serif; }
 
-.font-secondary {
-	font-family: crete round, serif
-}
+.font-secondary { font-family: 'Crete Round', serif; }
+
+.font-blog { font-family: 'Marat Pro Regular', Georgia, 'Times New Roman', Times, serif; }
 
 .bgicon {
 	display: block;
